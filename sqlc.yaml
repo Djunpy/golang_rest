@@ -1,0 +1,17 @@
+version: "1"
+cloud:
+    organization: ""
+    project: ""
+    hostname: ""
+project:
+    id: ""
+packages:
+    - name: 'db' # сообщает SQLC, какое имя использовать для сгенерированного пакета Golang.
+      path: './db/sqlc' # указывает путь для хранения сгенерированного кода Golang CRUD
+      queries: './db/query' # сообщает SQLC расположение файлов запросов.
+      schema: './db/migrations' # указывает путь к файлам миграции SQL
+      engine: 'postgresql' # сообщает SQLC тип механизма базы данных, который следует использовать. Может быть либо postgresqlили mysql.
+      emit_prepared_queries: true # Если установлено true, SQLC будет включать поддержку подготовленных запросов.
+      emit_interface: false # Если установлено true, SQLC будет включать Querierинтерфейс в сгенерированном пакете. Это полезно при имитации базы данных для тестирования функций более высокого уровня.
+      emit_exact_table_names: false # если установлено true, SQLC добавит теги JSON к сгенерированным структурам.
+      emit_json_tags: true # Если установлено true, Имена структур будут отражать имена таблиц.
